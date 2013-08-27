@@ -53,7 +53,8 @@ def main():
     parser.add_argument('filenames', metavar='FILENAME', type=str, nargs='+',
                         help='the filenames to rename')
     parser.add_argument('-r','--really-rename', dest = 'really_rename', action='store_true',
-                        help = 'do not actually rename files, just print what would happen')
+                        help = 'really rename the files. if not specified, \
+                        the program will only show what would have happend')
     parser.add_argument('-q','--quiet', dest = 'verbose', action='store_false',
                         help = 'do not print anything')
     parser.add_argument('-t', '--table', dest = 'transtable', 

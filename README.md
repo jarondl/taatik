@@ -38,8 +38,8 @@ positional arguments:
 optional arguments:
     
     -h, --help            show this help message and exit
-    -r, --really-rename   do not actually rename files, just print what would
-                          happen
+    -r, --really-rename   really rename the files. if not specified, the program
+                          will only show what would have happend
     -q, --quiet           do not print anything
     -t {EKTB,PHONETIC}, --table {EKTB,PHONETIC}
                           use the specified translation table (default: EKTB)
