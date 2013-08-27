@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+taatik - translitertion of filenames from Herbrew letters to Latin letters.
+===========================================================================
+
+Latinize Hebrew filenames, for use in unicode-incompatible devices
+such as old music players or car cd players. Supports two transliterations 
+tables:
+
+*   EKTB as suggested by [Amnon Katz in 1987][AK]. 
+    Characters are identified by the early Hebrew letters from which they developed.
+
+        converts   אבגדהוזחטיכלמנסעפצקרשתךםןףץ
+        to         ABCDEFGHVIKLMNXOPZQRSTKMNPZ
+        for example : הרחפת שלי מלאה בצלופחים ->  ERHPT SLI MLAE BZLFPHIM
+
+*   PHONETIC 
+    based on similar sounding letters, except ט->U ש->W which are based on figure.
+    
+        converts   אבגדהוזחטיכלמנסעפצקרשתךםןףץ
+        to         ABGDHVZXUYKLMNSOPCQRWTKMNPC
+        for example : הרחפת שלי מלאה בצלופחים ->  HRXPT WLY MLAH BCLVPXYM
+
+Note that both schemes do not treat the five final letters differently.
+
+
+
+[AK]:  dx.doi.org/10.1093/applin/9.3.306  "Article by Amnon Katz"
+"""
+import os
+import shutil
+import argparse
+
+HEBREW = "אבגדהוזחטיכלמנסעפצקרשתךםןףץ"
+
+trans = {'EKTB': "ABCDEFGHVIKLMNXOPZQRSTKMNPZ",
+         'PHONETIC': "ABGDHVZXUYKLMNSOPCQRWTKMNPC"}
+
+def translate_filenames(filenames, really_rename, verbose, transtable):
+    for filename in filenames:
+        newfilename = filename.translate(transtable)
+        if newfilename != filename:
+            if verbose:
+                print( "{} -> {}".format(filename, newfilename))
+            if really_rename:
+                shutil.move(filename, newfilename)
+        
+    
+def main():
+    parser = argparse.ArgumentParser(description = __doc__,
+                    formatter_class= argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('filenames', metavar='FILENAME', type=str, nargs='+',
+                        help='the filenames to rename')
+    parser.add_argument('-r','--really-rename', dest = 'really_rename', action='store_true',
+                        help = 'do not actually rename files, just print what would happen')
+    parser.add_argument('-q','--quiet', dest = 'verbose', action='store_false',
+                        help = 'do not print anything')
+    parser.add_argument('-t', '--table', dest = 'transtable', 
+                        choices=['EKTB', 'PHONETIC'], default='EKTB',
+                        help = 'use the specified translation table (default: EKTB)')
+    args = parser.parse_args()
+    
+    transtable = str.maketrans(HEBREW, trans[args.transtable])
+    translate_filenames(args.filenames, args.really_rename, args.verbose, transtable)
+    
+if __name__ == "__main__":
+    main()
+
