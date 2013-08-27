@@ -24,3 +24,22 @@ Note that both schemes do not treat the five final letters differently.
 
 
 [AK]:  dx.doi.org/10.1093/applin/9.3.306  "Article by Amnon Katz"
+
+
+Usage
+--------
+
+    usage: taatik [-h] [-r] [-q] [-t {EKTB,PHONETIC}] FILENAME [FILENAME ...]
+
+positional arguments:
+    
+    FILENAME              the filenames to rename
+
+optional arguments:
+    
+    -h, --help            show this help message and exit
+    -r, --really-rename   do not actually rename files, just print what would
+                          happen
+    -q, --quiet           do not print anything
+    -t {EKTB,PHONETIC}, --table {EKTB,PHONETIC}
+                          use the specified translation table (default: EKTB)
