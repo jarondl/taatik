@@ -15,12 +15,20 @@ tables:
         to         ABCDEFGHVIKLMNXOPZQRSTKMNPZ
         for example : הרחפת שלי מלאה בצלופחים ->  ERHPT SLI MLAE BZLFPHIM
 
+    |א|ב|ג|ד|ה|ו|ז|ח|ט|י|כ|ל|מ|נ|ס|ע|פ|צ|ק|ר|ש|ת|ך|ם|ן|ף|ץ|
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    |A|B|C|D|E|F|G|H|V|I|K|L|M|N|X|O|P|Z|Q|R|S|T|K|M|N|P|Z|
+
 *   PHONETIC 
     based on similar sounding letters, except ט->U ש->W which are based on figure.
     
         converts   אבגדהוזחטיכלמנסעפצקרשתךםןףץ
         to         ABGDHVZXUYKLMNSOPCQRWTKMNPC
         for example : הרחפת שלי מלאה בצלופחים ->  HRXPT WLY MLAH BCLVPXYM
+
+    |א|ב|ג|ד|ה|ו|ז|ח|ט|י|כ|ל|מ|נ|ס|ע|פ|צ|ק|ר|ש|ת|ך|ם|ן|ף|ץ|
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    |A|B|G|D|H|V|Z|X|U|Y|K|L|M|N|S|O|P|C|Q|R|W|T|K|M|N|P|C|
 
 Note that both schemes do not treat the five final letters differently.
 
